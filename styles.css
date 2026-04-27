@@ -158,7 +158,15 @@ h1 span {
   gap: 16px;
   grid-template-columns: repeat(2, minmax(0,1fr));
 }
-.card { padding: 22px; }
+.card { 
+  padding: 22px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#about .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(111, 124, 255, 0.3);
+}
 
 .project-grid {
   display: grid;
@@ -380,6 +388,10 @@ input:focus, textarea:focus, .btn:focus-visible, a:focus-visible {
   .card-a { left: 8px; top: 34px; }
   .card-b { right: 8px; top: 50px; }
   .card-c { right: 24px; bottom: 6px; }
+  
+  #about .card:hover {
+    transform: scale(1.02);
+  }
 }
 @media (max-width: 640px) {
   .nav { padding: 10px 12px; }
@@ -387,6 +399,11 @@ input:focus, textarea:focus, .btn:focus-visible, a:focus-visible {
   .project-grid { grid-template-columns: 1fr; }
   .hero-stage { min-height: auto; padding: 14px 0; }
   .float-card { position: static; width: 100%; transform: none !important; margin-top: 12px; }
+  
+  /* Disable hover effects on mobile */
+  #about .card:hover {
+    transform: none;
+  }
   
   /* Reduce animation intensity on mobile */
   .bg-orb {
