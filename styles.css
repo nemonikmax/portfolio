@@ -15,9 +15,9 @@ html, body { margin: 0; padding: 0; }
 body {
   font-family: Inter, system-ui, sans-serif;
   background: 
-    radial-gradient(circle at 20% 20%, #101a35 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, #1a1f3a 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, #0f172a 0%, var(--bg) 70%);
+    radial-gradient(circle at var(--mouse-x-1, 20%) var(--mouse-y-1, 20%), #101a35 0%, transparent 50%),
+    radial-gradient(circle at var(--mouse-x-2, 80%) var(--mouse-y-2, 80%), #1a1f3a 0%, transparent 50%),
+    radial-gradient(circle at var(--mouse-x-3, 50%) var(--mouse-y-3, 50%), #0f172a 0%, var(--bg) 70%);
   background-size: 400px 400px, 350px 350px, 100% 100%;
   background-position: 0% 0%, 100% 100%, 50% 50%;
   animation: gradientShift 20s ease-in-out infinite;
@@ -25,6 +25,7 @@ body {
   line-height: 1.55;
   overflow-x: hidden;
   position: relative;
+  transition: background-position 0.3s ease-out;
 }
 
 .container { width: min(1100px, 92%); margin: 0 auto; }
@@ -403,6 +404,15 @@ input:focus, textarea:focus, .btn:focus-visible, a:focus-visible {
   /* Disable hover effects on mobile */
   #about .card:hover {
     transform: none;
+  }
+  
+  /* Disable interactive background on mobile */
+  body {
+    background: 
+      radial-gradient(circle at 20% 20%, #101a35 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, #1a1f3a 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, #0f172a 0%, var(--bg) 70%);
+    transition: none;
   }
   
   /* Reduce animation intensity on mobile */

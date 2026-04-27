@@ -300,6 +300,59 @@ class MouseTrail {
   }
 }
 
+// Interactive background effects
+class InteractiveBackground {
+  constructor() {
+    this.mouseX = 0;
+    this.mouseY = 0;
+    this.windowWidth = window.innerWidth;
+    this.windowHeight = window.innerHeight;
+    
+    this.init();
+  }
+
+  init() {
+    document.addEventListener('mousemove', (e) => {
+      this.mouseX = e.clientX;
+      this.mouseY = e.clientY;
+      this.updateBackground();
+    });
+
+    window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth;
+      this.windowHeight = window.innerHeight;
+      this.updateBackground();
+    });
+  }
+
+  updateBackground() {
+    // Calculate mouse position as percentage (0-100)
+    const mouseXPercent = (this.mouseX / this.windowWidth) * 100;
+    const mouseYPercent = (this.mouseY / this.windowHeight) * 100;
+
+    // Update CSS variables for parallax effect
+    // Layer 1: moves opposite to mouse (strong parallax)
+    const layer1X = 20 + (50 - mouseXPercent) * 0.3;
+    const layer1Y = 20 + (50 - mouseYPercent) * 0.3;
+
+    // Layer 2: moves with mouse (medium parallax)
+    const layer2X = 80 + (mouseXPercent - 50) * 0.2;
+    const layer2Y = 80 + (mouseYPercent - 50) * 0.2;
+
+    // Layer 3: subtle movement (light parallax)
+    const layer3X = 50 + (mouseXPercent - 50) * 0.1;
+    const layer3Y = 50 + (mouseYPercent - 50) * 0.1;
+
+    // Apply CSS variables
+    document.documentElement.style.setProperty('--mouse-x-1', `${layer1X}%`);
+    document.documentElement.style.setProperty('--mouse-y-1', `${layer1Y}%`);
+    document.documentElement.style.setProperty('--mouse-x-2', `${layer2X}%`);
+    document.documentElement.style.setProperty('--mouse-y-2', `${layer2Y}%`);
+    document.documentElement.style.setProperty('--mouse-x-3', `${layer3X}%`);
+    document.documentElement.style.setProperty('--mouse-y-3', `${layer3Y}%`);
+  }
+}
+
 // Interactive orb effects
 class InteractiveOrbs {
   constructor() {
@@ -325,13 +378,13 @@ class InteractiveOrbs {
           Math.pow(this.mouseY - orbCenterY, 2)
         );
         
-        // Interactive effect when mouse is near
-        if (distance < 200) {
-          const force = (200 - distance) / 200;
-          const moveX = (orbCenterX - this.mouseX) * force * 0.1;
-          const moveY = (orbCenterY - this.mouseY) * force * 0.1;
+        // Enhanced interactive effect when mouse is near
+        if (distance < 300) {
+          const force = (300 - distance) / 300;
+          const moveX = (orbCenterX - this.mouseX) * force * 0.15;
+          const moveY = (orbCenterY - this.mouseY) * force * 0.15;
           
-          orb.style.transform = `translate(${moveX}px, ${moveY}px)`;
+          orb.style.transform = `translate(${moveX}px, ${moveY}px) scale(${1 + force * 0.1})`;
         } else {
           orb.style.transform = '';
         }
@@ -340,14 +393,21 @@ class InteractiveOrbs {
   }
 }
 
+// Touch device detection
+function isTouchDevice() {
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+}
+
 // Initialize all effects
 document.addEventListener('DOMContentLoaded', () => {
-  // Check for reduced motion preference
+  // Check for reduced motion preference and touch devices
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = isTouchDevice();
   
-  if (!prefersReducedMotion) {
+  if (!prefersReducedMotion && !isTouch) {
     const particleSystem = new ParticleSystem();
     const mouseTrail = new MouseTrail();
+    const interactiveBackground = new InteractiveBackground();
     const interactiveOrbs = new InteractiveOrbs();
     
     // Clean up on page unload
@@ -355,6 +415,9 @@ document.addEventListener('DOMContentLoaded', () => {
       particleSystem.destroy();
       mouseTrail.destroy();
     });
+  } else if (isTouch) {
+    // Add touch-optimized class for CSS
+    document.body.classList.add('touch-device');
   }
 });
 
