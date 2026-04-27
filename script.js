@@ -312,6 +312,9 @@ class InteractiveBackground {
   }
 
   init() {
+    // Initialize CSS variables
+    this.updateBackground();
+    
     document.addEventListener('mousemove', (e) => {
       this.mouseX = e.clientX;
       this.mouseY = e.clientY;
@@ -350,6 +353,19 @@ class InteractiveBackground {
     document.documentElement.style.setProperty('--mouse-y-2', `${layer2Y}%`);
     document.documentElement.style.setProperty('--mouse-x-3', `${layer3X}%`);
     document.documentElement.style.setProperty('--mouse-y-3', `${layer3Y}%`);
+    
+    // Also update background directly for better compatibility
+    const gradient1 = `radial-gradient(circle at ${layer1X}% ${layer1Y}%, #101a35 0%, transparent 50%)`;
+    const gradient2 = `radial-gradient(circle at ${layer2X}% ${layer2Y}%, #1a1f3a 0%, transparent 50%)`;
+    const gradient3 = `radial-gradient(circle at ${layer3X}% ${layer3Y}%, #0f172a 0%, var(--bg) 70%)`;
+    
+    document.body.style.background = `
+      ${gradient1},
+      ${gradient2},
+      ${gradient3}
+    `;
+    document.body.style.backgroundSize = '400px 400px, 350px 350px, 100% 100%';
+    document.body.style.backgroundPosition = '0% 0%, 100% 100%, 50% 50%';
   }
 }
 
