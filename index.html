@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nemik Portfolio — UI/UX Designer & Frontend Developer</title>
+    <meta name="description" content="Современное портфолио Nemik — UI/UX дизайн и frontend разработка. Создаю цифровые продукты с фокусом на минимализм и пользовательский опыт." />
+    <meta name="keywords" content="портфолио, UI дизайн, UX дизайн, frontend разработчик, веб-дизайн, Nemik" />
+    <meta name="author" content="Nemik" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nemik Portfolio — UI/UX Designer & Frontend Developer" />
+    <meta property="og:description" content="Современное портфолио Nemik — UI/UX дизайн и frontend разработка. Создаю цифровые продукты с фокусом на минимализм и пользовательский опыт." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="#" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nemik Portfolio — UI/UX Designer & Frontend Developer" />
+    <meta name="twitter:description" content="Современное портфолио Nemik — UI/UX дизайн и frontend разработка." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎨</text></svg>" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nemik",
+      "jobTitle": "UI/UX Designer & Frontend Developer",
+      "description": "Создаю современные цифровые продукты с фокусом на UI/UX и скорости",
+      "url": "#",
+      "sameAs": [
+        "https://t.me/buyerfox",
+        "https://t.me/ne_mik"
+      ],
+      "knowsAbout": ["UI Design", "UX Design", "Frontend Development", "Web Design", "JavaScript", "HTML", "CSS"]
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  </head>
+  <body>
+    <div class="bg-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-orb orb-2" aria-hidden="true"></div>
+    <div class="bg-orb orb-3" aria-hidden="true"></div>
+    <div class="bg-orb orb-4" aria-hidden="true"></div>
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <header class="container nav glass">
+      <a class="logo" href="#hero">YN</a>
+      <nav>
+        <a href="#about">Обо мне</a>
+        <a href="#projects">Проекты</a>
+        <a href="#skills">Навыки</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="container hero">
+        <div class="hero-stage reveal">
+          <div class="hero-content glass">
+            <p class="tag">PORTFOLIO 2026</p>
+            <h1>Привет, я <span>Nemik</span></h1>
+            <p class="subtitle">Creator / Designer / Developer</p>
+            <p class="hero-text">
+              Создаю современные цифровые продукты: от идеи до аккуратной реализации с
+              фокусом на UI/UX и скорости.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects">Посмотреть работы</a>
+              <a class="btn btn-ghost" href="#contacts">Связаться</a>
+            </div>
+          </div>
+
+          <article class="float-card glass card-a" aria-label="UI Card 1">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&auto=format&fit=crop" alt="UI Preview 1" loading="lazy" />
+            <div>
+              <h3>Analytics UI</h3>
+              <p>Dark dashboard, clean charts, smooth transitions.</p>
+            </div>
+          </article>
+
+          <article class="float-card glass card-b" aria-label="UI Card 2">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=640&auto=format&fit=crop" alt="UI Preview 2" loading="lazy" />
+            <div>
+              <h3>SaaS Landing</h3>
+              <p>Glass cards, clear CTA hierarchy, responsive first.</p>
+            </div>
+          </article>
+
+          <article class="float-card glass card-c" aria-label="UI Card 3">
+            <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=640&auto=format&fit=crop" alt="UI Preview 3" loading="lazy" />
+            <div>
+              <h3>Mobile Product</h3>
+              <p>Neon accent details + minimal, high-contrast layout.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="container section reveal">
+        <h2>Обо мне</h2>
+        <div class="grid-2">
+          <div class="card glass">
+            <p>
+              Я занимаюсь веб‑дизайном и разработкой интерфейсов. Люблю минимализм,
+              чистую архитектуру и анимации, которые делают продукт «живым», но не
+              перегружают.
+            </p>
+          </div>
+          <div class="card glass">
+            <h3>Чем занимаюсь</h3>
+            <ul>
+              <li>UI/UX дизайн интерфейсов</li>
+              <li>Разработка лендингов и веб‑приложений</li>
+              <li>Оптимизация производительности</li>
+              <li>Адаптивная верстка под все устройства</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="container section reveal">
+        <h2>Мои проекты</h2>
+        <div class="project-grid">
+          <article class="project-card glass" data-project="fintech">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&auto=format&fit=crop" alt="Проект 1" loading="lazy" />
+            <div class="project-body">
+              <h3>Fintech Dashboard</h3>
+              <p>Панель аналитики с интерактивными графиками и адаптивным интерфейсом.</p>
+              <button class="btn btn-ghost project-btn">Подробнее</button>
+            </div>
+          </article>
+
+          <article class="project-card glass" data-project="saas">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&auto=format&fit=crop" alt="Проект 2" loading="lazy" />
+            <div class="project-body">
+              <h3>SaaS Landing</h3>
+              <p>Конверсионный лендинг с акцентом на доверие, CTA и быстрый first paint.</p>
+              <button class="btn btn-ghost project-btn">Подробнее</button>
+            </div>
+          </article>
+
+          <article class="project-card glass" data-project="portfolio">
+            <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=900&auto=format&fit=crop" alt="Проект 3" loading="lazy" />
+            <div class="project-body">
+              <h3>Creator Portfolio</h3>
+              <p>Личный сайт‑портфолио в dark UI с glassmorphism и микроанимациями.</p>
+              <button class="btn btn-ghost project-btn">Подробнее</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="container section reveal">
+        <h2>Навыки</h2>
+        <div class="skills-grid">
+          <div class="skill glass">
+            <div class="skill-head"><span>🎨 UI/UX Design</span><span>90%</span></div>
+            <div class="bar"><i style="width: 90%"></i></div>
+          </div>
+          <div class="skill glass">
+            <div class="skill-head"><span>💻 Frontend</span><span>85%</span></div>
+            <div class="bar"><i style="width: 85%"></i></div>
+          </div>
+          <div class="skill glass">
+            <div class="skill-head"><span>⚙️ JavaScript</span><span>80%</span></div>
+            <div class="bar"><i style="width: 80%"></i></div>
+          </div>
+          <div class="skill glass">
+            <div class="skill-head"><span>📱 Responsive</span><span>92%</span></div>
+            <div class="bar"><i style="width: 92%"></i></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" class="container section reveal">
+        <h2>Контакты</h2>
+        <div class="grid-2">
+          <div class="card glass contacts-list">
+            <a href="https://t.me/buyerfox" target="_blank" rel="noopener noreferrer">Telegram: @buyerfox</a>
+            <a href="https://t.me/ne_mik" target="_blank" rel="noopener noreferrer">Telegram: @ne_mik</a>
+            <a href="mailto:nikmax20115@gmail.com">Email: nikmax20115@gmail.com</a>
+          </div>
+
+          <form class="card glass contact-form" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+            <label>
+              Имя
+              <input type="text" name="name" id="formName" required placeholder="Ваше имя" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" id="formEmail" required placeholder="your@email.com" />
+            </label>
+            <label>
+              Сообщение
+              <textarea name="message" id="formMessage" rows="4" required placeholder="Напишите сообщение..."></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Отправить</button>
+            <div id="formStatus" class="form-status"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="projectModal" class="modal">
+      <div class="modal-content glass">
+        <button class="modal-close" aria-label="Закрыть">&times;</button>
+        <div class="modal-body">
+          <h2 id="modalTitle"></h2>
+          <div id="modalImage"></div>
+          <div id="modalDescription"></div>
+          <div id="modalTech"></div>
+          <div id="modalLinks"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
